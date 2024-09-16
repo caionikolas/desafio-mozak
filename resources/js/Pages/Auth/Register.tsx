@@ -2,7 +2,6 @@ import { FormEventHandler } from 'react';
 import GuestLayout from '@/Layouts/GuestLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import { Head, Link, useForm } from '@inertiajs/react';
 
@@ -103,9 +102,9 @@ export default function Register() {
                         Already registered?
                     </Link>
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
+                    <button className="ms-4" disabled={processing}>
                         Register
-                    </PrimaryButton>
+                    </button>
                 </div>
             </form>
         </GuestLayout>
