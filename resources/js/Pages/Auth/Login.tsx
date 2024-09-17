@@ -39,17 +39,17 @@ export default function Login({ status }: { status?: string, canResetPassword: b
       <>
           <Header/>
 
-          <div className='flex justify-evenly py-24'>
+          <div className='flex items-center justify-evenly py-24'>
           <Head title="Entrar" />
 
-                      <div className='flex flex-col gap-3'>
-                      <h1 className='text-xl font-bold text-center'>Entre com a sua Conta</h1>
-                      <p className='text-sm font-medium'>Entre com a sua conta para participar do evento</p>
-
-                      {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
+            <div className='flex flex-col gap-3'>
                       <form onSubmit={registerSubmit}>
-                          <div>
+                        
+                        <h1 className='events pb-5'>Entre com a sua Conta</h1>
+                        <p className='text-lg font-medium'>Entre com a sua conta para participar do evento</p>
+
+                        <div className='m-4'>
+                        <div>
                               <InputLabel htmlFor="email" value="Email" />
 
                               <TextInput
@@ -68,7 +68,7 @@ export default function Login({ status }: { status?: string, canResetPassword: b
                           </div>
 
                           <div className="mt-4">
-                              <InputLabel htmlFor="password" value="Password" />
+                              <InputLabel htmlFor="password" value="Senha" />
 
                               <TextInput
                                   id="password"
@@ -83,10 +83,13 @@ export default function Login({ status }: { status?: string, canResetPassword: b
                           </div>
 
                           <div className="flex items-center justify-end">
-                              <button className="primary-btn mt-8" disabled={registerForm.processing}>
-                                  Log in
+                              <button className="primary-btn w-96 h-12 mt-12 text-lg" disabled={registerForm.processing}>
+                                  Acessar
                               </button>
                           </div>
+                        </div>
+
+                          
                       </form>
                   </div>
 
@@ -96,68 +99,76 @@ export default function Login({ status }: { status?: string, canResetPassword: b
 
                       <div>
               <form onSubmit={submitLogin}>
-                  <div className='flex flex-col gap-3'>
-                      <h1 className='text-xl font-bold text-center'>Entre com a sua Conta</h1>
-                      <p className='text-sm font-medium'>Entre com a sua conta para participar do evento</p>
+                    <h1 className='events pb-5'>Cadastre-se</h1>
+                    <p className='text-lg font-medium'>Cadastre-se para participar ou criar um evento</p>
+                    <div className='m-4'>
 
-                      <InputLabel htmlFor="name" value="Name" />
+                            <div className='flex flex-col gap-3'>
+                            
 
-                      <TextInput
-                          id="name"
-                          name="name"
-                          placeholder='Digite seu nome'
-                          value={data.name}
-                          className="mt-1 block w-full"
-                          autoComplete="name"
-                          isFocused={true}
-                          onChange={(e) => setData('name', e.target.value)}
-                          required
-                      />
+                            <InputLabel htmlFor="name" value="Name" />
 
-                      <InputError message={errors.name} className="mt-2" />
-                  </div>
+                            <TextInput
+                                id="name"
+                                name="name"
+                                placeholder='Digite seu nome'
+                                value={data.name}
+                                className="mt-1 block w-full"
+                                autoComplete="name"
+                                isFocused={true}
+                                onChange={(e) => setData('name', e.target.value)}
+                                required
+                            />
 
-                  <div className="mt-4">
-                      <InputLabel htmlFor="email" value="Email" />
+                            <InputError message={errors.name} className="mt-2" />
+                        </div>
 
-                      <TextInput
-                          id="email"
-                          type="email"
-                          name="email"
-                          placeholder='Digite seu email'
-                          value={data.email}
-                          className="mt-1 block w-full"
-                          autoComplete="username"
-                          onChange={(e) => setData('email', e.target.value)}
-                          required
-                      />
+                        <div className="mt-4">
+                            <InputLabel htmlFor="email" value="Email" />
 
-                      <InputError message={errors.email} className="mt-2" />
-                  </div>
+                            <TextInput
+                                id="email"
+                                type="email"
+                                name="email"
+                                placeholder='Digite seu email'
+                                value={data.email}
+                                className="mt-1 block w-full"
+                                autoComplete="username"
+                                onChange={(e) => setData('email', e.target.value)}
+                                required
+                            />
 
-                  <div className="mt-4">
-                      <InputLabel htmlFor="password" value="Senha" />
+                            <InputError message={errors.email} className="mt-2" />
+                        </div>
 
-                      <TextInput
-                          id="password"
-                          type="password"
-                          name="password"
-                          placeholder='Digite sua senha'
-                          value={data.password}
-                          className="mt-1 block w-full p-4"
-                          autoComplete="new-password"
-                          onChange={(e) => setData('password', e.target.value)}
-                          required
-                      />
+                        <div className="mt-4">
+                            <InputLabel htmlFor="password" value="Senha" />
 
-                      <InputError message={errors.password} className="mt-2" />
-                  </div>
+                            <TextInput
+                                id="password"
+                                type="password"
+                                name="password"
+                                placeholder='Digite sua senha'
+                                value={data.password}
+                                className="mt-1 block w-full p-4"
+                                autoComplete="new-password"
+                                onChange={(e) => setData('password', e.target.value)}
+                                required
+                            />
 
-                  <div>
-                      <button className="primary-btn mt-12">
-                          Criar Conta
-                      </button>
-                  </div>
+                            <InputError message={errors.password} className="mt-2" />
+                        </div>
+
+                        <div>
+                            <button className="primary-btn w-96 h-12 mt-12 text-lg">
+                                Criar Conta
+                            </button>
+                        </div>
+
+                </div>
+                    
+
+                  
               </form>
               </div>
 

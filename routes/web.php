@@ -9,6 +9,7 @@ Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canCreateEvent' => Route::has('login'),
         'canLogin' => Route::has('register'),
+        'canEventInfo' => Route::has('eventInfo'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
@@ -23,5 +24,13 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/createEvent', function () {
+    return Inertia::render('Event/CreateEvent');
+})->middleware(['auth', 'verified'])->name('createEvent');
+
+Route::get('/eventInfo', function () {
+    return Inertia::render('Event/EventInfo');
+})->middleware(['auth', 'verified'])->name('eventInfo');;
 
 require __DIR__.'/auth.php';

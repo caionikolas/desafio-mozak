@@ -17,6 +17,7 @@ return new class extends Migration
             $table->datetime('created_at')->useCurrent();
             $table->datetime('updated_at')->nullable();
             $table->datetime('deleted_at')->nullable();
+            $table->integer('owner_id');
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('address');

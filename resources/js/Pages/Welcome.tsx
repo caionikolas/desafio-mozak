@@ -16,7 +16,7 @@ export default function Welcome({ auth}: PageProps<{ laravelVersion: string, php
                 <nav>
                     {auth.user ? (
                         <div className="flex items-center gap-3">
-                        <Link className='nav-link w-max' href={route('dashboard')}>
+                        <Link className='nav-link w-max' href={route('createEvent')}>
                             Criar evento
                         </Link>
                         <span>|</span>
@@ -25,7 +25,7 @@ export default function Welcome({ auth}: PageProps<{ laravelVersion: string, php
                         </Link>
                         <span>|</span>
                         <Link className='nav-link w-max' href={route('logout')} method="post" as="button">
-                            Sair
+                            SAIR
                         </Link>
                     </div>
                     ) : (
@@ -51,12 +51,24 @@ export default function Welcome({ auth}: PageProps<{ laravelVersion: string, php
             <main>                
                 <h1 className='events'>Eventos da morena.</h1>
                 <div className='flex items-center flex-wrap justify-start gap-8 mt-20 w-[1200px]'>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
+                    <Link href={route('eventInfo')}>
                     <EventCard/>
+                    </Link>
                 </div>
             </main>
             <Footer/>

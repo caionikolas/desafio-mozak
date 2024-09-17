@@ -19,7 +19,7 @@ export default function Header() {
                     </Link>
                     <span>|</span>
                     <Link
-                        href={route('register')}
+                        href={route('login')}
                         className="nav-link text-black"
                     >
                         Entrar

@@ -14,7 +14,7 @@ export default function Authenticated({ children }: PropsWithChildren<{ header?:
                 </div>
 
                 <nav className="flex items-center gap-3">
-                    <Link className='nav-link w-max' href={route('dashboard')}>
+                    <Link className='nav-link w-max' href={route('createEvent')}>
                         Criar evento
                     </Link>
                     <span>|</span>
@@ -23,7 +23,7 @@ export default function Authenticated({ children }: PropsWithChildren<{ header?:
                     </Link>
                     <span>|</span>
                     <Link className='nav-link w-max' href={route('logout')} method="post" as="button">
-                        Sair
+                        SAIR
                     </Link>
                 </nav>
             </header>
