@@ -9,15 +9,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('event-guests', function (Blueprint $table) {
-            $table->integer('id');
-            $table->integer('event_id')->unsigned();
-            $table->integer('user_id')->unsigned();
+            $table->increments('id')->primary();
             $table->uuid('uuid_code');
             $table->datetime('created_at')->useCurrent();
             $table->datetime('updated_at')->nullable();
             $table->datetime('deleted_at')->nullable();
-            $table->foreign('event_id')->references('id')->on('events');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('event_id')->nullable();
+            $table->integer('user_id')->nullable();
         });
     }
     public function down(): void

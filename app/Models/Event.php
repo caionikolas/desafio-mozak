@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\User;
 
 class Event extends Authenticatable
 {
@@ -28,6 +29,13 @@ class Event extends Authenticatable
       'complement',
       'isActive',
     ];
+
+    use HasFactory;
+
+    public function user(): BelongsTo 
+    {
+      return $this->belongsTo(User::class, 'owner_id', 'id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

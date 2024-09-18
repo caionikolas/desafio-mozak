@@ -22,6 +22,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    protected $primaryKey = 'id';
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -43,5 +45,10 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    
+    public function events(): HasMany
+    {
+        return $this->hasMany(Event::class, 'owner_id', 'id');
     }
 }

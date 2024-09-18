@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -24,6 +25,13 @@ class CreateEventController extends Controller
         return Inertia::render('Event/CreateEvent');
     }
 
+    public function index()
+    {
+        $user = Event::find(1)->user;
+
+        $event = User::find(1)->event;
+    }
+
     /**
      * Handle an incoming registration request.
      *
@@ -33,27 +41,27 @@ class CreateEventController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'maxSubscription' => 'numeric|min:1',
+            'maxSubscription' => 'numeric',
             'zipcode' => 'required|string|max:255',
             'number' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'address' => 'required|string|max:255',
-            'state' => 'numeric'
+            'state' => 'numeric',
         ]);
 
         $event = Event::create([
           'name' => $request->name,
-          'maxSubscription' => $request->maxSubscription,
+          'max_subscription' => $request->maxSubscription,
           'zipcode' => $request->zipcode,
           'number' => $request->number,
           'city' => $request->city,
           'address' => $request->address,
           'state' => $request->state,
           'description' => $request->description,
-          'startsAt' => $request->startsAt,
-          'endsAt' => $request->endsAt,
+          'starts_at' => $request->startsAt,
+          'ends_at' => $request->endsAt,
           'complement' => $request->complement,
-          'isActive' => $request->isActive,
+          'is_active' => $request->isActive,
         ]);
 
         event(new Registered($event));
