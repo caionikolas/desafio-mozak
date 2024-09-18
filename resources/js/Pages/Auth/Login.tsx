@@ -5,7 +5,7 @@ import TextInput from '@/Components/TextInput';
 import { Head, useForm } from '@inertiajs/react';
 import Header from '@/Components/Header';
 
-export default function Login({ status }: { status?: string, canResetPassword: boolean }) {
+export default function Login() {
     const registerForm = useForm({
         email: '',
         password: '',
@@ -16,12 +16,10 @@ export default function Login({ status }: { status?: string, canResetPassword: b
     const registerSubmit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        registerForm.post(route('login'), {
-            onFinish: () => registerForm.reset('password'),
-        });
+        registerForm.post(route('login'));
     };
 
-    const { data, setData, post, errors, reset } = useForm({
+    const { data, setData, post, errors } = useForm({
         name: '',
         email: '',
         password: '',
@@ -30,9 +28,7 @@ export default function Login({ status }: { status?: string, canResetPassword: b
     const submitLogin: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('register'), {
-            onFinish: () => reset('password'),
-        });
+        post(route('register'));
     };
 
     return (

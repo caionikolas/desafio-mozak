@@ -29,6 +29,11 @@ Route::get('/createEvent', function () {
     return Inertia::render('Event/CreateEvent');
 })->middleware(['auth', 'verified'])->name('createEvent');
 
+Route::post('/createEvent', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
 Route::get('/eventInfo', function () {
     return Inertia::render('Event/EventInfo');
 })->middleware(['auth', 'verified'])->name('eventInfo');;

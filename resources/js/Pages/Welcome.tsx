@@ -1,10 +1,12 @@
-import { Link, Head } from '@inertiajs/react';
+import { Link, Head, usePage } from '@inertiajs/react';
 import { PageProps } from '@/types';
 import Morena from '../../assets/images/logo.svg'
 import EventCard from '@/Components/EventCard';
 import Footer from '@/Components/Footer';
 
 export default function Welcome({ auth}: PageProps<{ laravelVersion: string, phpVersion: string }>) {
+
+    const user = usePage().props.auth.user;
 
     return (
         <>

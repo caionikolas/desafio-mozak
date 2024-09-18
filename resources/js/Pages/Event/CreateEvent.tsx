@@ -10,23 +10,27 @@ import { Head, useForm } from "@inertiajs/react";
 import { FormEventHandler } from "react";
 
 export default function CreateEvent() {
-  const { data, setData, post, errors, reset } = useForm({
+  const { data, setData, post, errors, processing } = useForm({
     isActive: false,
     name: '',
     description: '',
     startsAt: '',
     endsAt:'',
-    maxSubscription: '',
+    maxSubscription: 0,
     zipcode: '',
     number:'',
     city: '',
-    state: '',
+    state: 0,
     complement: '',
     address:'',
 });
 
 const submit: FormEventHandler = (e) => {
     e.preventDefault();
+
+    console.log(data)
+
+    post(route('create-event'));
 };
 
   return (
@@ -128,7 +132,7 @@ const submit: FormEventHandler = (e) => {
               min={1}
               value={data.maxSubscription}
               className="mt-1 block w-full"
-              onChange={(e) => setData('endsAt', e.target.value)}
+              onChange={(e) => setData('maxSubscription', e.target.value)}
               required
             />
 
@@ -255,8 +259,8 @@ const submit: FormEventHandler = (e) => {
         </div>
       </form>
       <div className="flex items-center justify-center pb-16">
-        <button className="primary-btn w-80 h-12 mt-16">
-            Criar Conta
+        <button className="primary-btn w-80 h-12 mt-16" disabled={processing}>
+            Cadastrar Evento
         </button>
       </div>
     </>
