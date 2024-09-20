@@ -10,6 +10,8 @@ use App\Models\User;
 
 class Event extends Authenticatable
 {
+
+    use HasFactory;
     /**
      * The attributes that are mass assignable.
      *
@@ -29,8 +31,6 @@ class Event extends Authenticatable
       'complement',
       'isActive',
     ];
-
-    use HasFactory;
 
     public function user(): BelongsTo 
     {

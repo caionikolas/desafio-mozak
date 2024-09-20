@@ -22,14 +22,7 @@ class CreateEventController extends Controller
      */
     public function create(): Response
     {
-        return Inertia::render('Event/CreateEvent');
-    }
-
-    public function index()
-    {
-        $user = Event::find(1)->user;
-
-        $event = User::find(1)->event;
+        return Inertia::render('dashboard');
     }
 
     /**
