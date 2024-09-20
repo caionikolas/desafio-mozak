@@ -29,6 +29,6 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 
     Route::post('createEvent',
-    [CreateEventController::class, 'store'])
-    ->name('dashboard');;
+    [EventController::class, 'store'])
+    ->name('createEvent');;
 });

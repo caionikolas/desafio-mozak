@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
     <footer>
-      <div className='h-12 bg-amber-500 mt-40'>aksdopkasd</div>
+      <div className='h-12 mt-40'></div>
   </footer>
   )
 }

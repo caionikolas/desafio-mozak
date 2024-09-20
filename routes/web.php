@@ -30,8 +30,8 @@ Route::get('/createEvent', function () {
 })->middleware(['auth', 'verified'])->name('createEvent');
 
 Route::post('/createEvent', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return Inertia::render('Event/CreateEvent');
+})->middleware(['auth', 'verified'])->name('createEvent');
 
 Route::get('/eventInfo', function () {
     return Inertia::render('Event/EventInfo');

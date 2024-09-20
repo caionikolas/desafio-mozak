@@ -59,6 +59,6 @@ class CreateEventController extends Controller
 
         event(new Registered($event));
 
-        return redirect(route('createEvent', absolute: false));
+        return redirect(route('dashboard', absolute: false));
     }
 }
